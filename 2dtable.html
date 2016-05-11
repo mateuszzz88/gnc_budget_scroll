@@ -134,7 +134,7 @@
                
         $('#cTable').cTable({
             width: 1300,
-            height: 500,
+            height: 600,
             fCols: 2,
             fRows: 2
         });
@@ -157,28 +157,13 @@
    .cTContainer td { overflow: hidden; padding: 2px 2px; border-width: 1px; border-style: solid; border-color: black; }
     .leftContainer table tr { background-color: #F1F1F1; }
     
-    body { height: 600px; } 
+    body { height: 700px; } 
 </style>
 </HEAD>
 <BODY>
   <form name="MyForm" method="POST" action="">
-    <table border="1" width="100%" cellspacing="1" cellpadding="0" align="center">
-        <tr>
-        <td width="35%" align="left">header junk left</td>
-        <td >- HEADER JUNK MIDDLE -</td>
-        <td width="35%" align="right">header junk right</td>
-        </tr>
-    </table>
-    <br />
-    <table border="0" width="95%" cellspacing="1" cellpadding="0" align="center">
-        <tr>
-        <td width="60%" align="left">header junk left</td>
-        <td width="40%" align="right">check it out! <input type="checkbox" onchange="alert('your javascript here');" value="Y" name="checkitout"></td>
-        </tr>
-    </table>
-
     <!-- big table here!!--><!-- big table here!!--><!-- big table here!!--><!-- big table here!!-->
-    <table border="1" width="95%" cellspacing="1" cellpadding="0" align="center" id="cTable" >
+    <table border="1" width="100%"  cellpadding="0" align="center" id="cTable" >
         <tr>
             <td width="5%" colspan="3">fixed can be long<br>or short</td>
             <td width="9%" colspan="4">scroll A</td>
@@ -563,15 +548,7 @@
             <td >1 1 1 1 1 1 1 O</td>
         </tr>
     </table>
-    <br />
-    <!-- static size footer junk--><!-- static size footer junk--><!-- static size footer junk--><!-- static size footer junk-->
-    <table border="1" width="100%" cellspacing="1" cellpadding="0" align="center">
-        <tr>
-        <td width="35%" align="left">footer junk left</td>
-        <td >- FOOTER JUNK MIDDLE -</td>
-        <td width="35%" align="right">footer junk right</td>
-        </tr>
-    </table>
+     <!-- big table ends here!!-->
 </form>
 </BODY>
 </HTML> 
