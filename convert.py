@@ -169,12 +169,15 @@ STYLETITLE = """</style>
 input_file = sys.argv[1] if len(sys.argv) == 2 else "input.html"
 with open(input_file, 'r') as inf, open("output.html", 'w') as outf:
     txt = inf.read()
-    # txt = txt.replace('<td>&nbsp;&nbsp;&nbsp;</td>\n\n<td>&nbsp;&nbsp;&nbsp;</td>', '')
-    # txt = txt.replace('<td>&nbsp;&nbsp;&nbsp;</td>\n\n<td class="number-cell" rowspan="1" colspan="1">&nbsp;&nbsp;&nbsp;</td>', '')
-    # txt = txt.replace('<td class="number-cell" rowspan="1" colspan="1">&nbsp;&nbsp;&nbsp;</td>\n\n<td>&nbsp;&nbsp;&nbsp;</td>', '')
-    txt = txt.replace('<td>&nbsp;&nbsp;&nbsp;</td>\n\n<td>&nbsp;&nbsp;&nbsp;</td>', '<td/>')
-    txt = txt.replace('<td>&nbsp;&nbsp;&nbsp;</td>', '')
-    txt = txt.replace('<td class="number-cell" rowspan="1" colspan="1">&nbsp;&nbsp;&nbsp;</td>\n\n', '')
+    DEPTH = 3
+    if DEPTH == 2:
+        txt = txt.replace('<td>&nbsp;&nbsp;&nbsp;</td>\n\n<td>&nbsp;&nbsp;&nbsp;</td>', '<td/>')
+        txt = txt.replace('<td>&nbsp;&nbsp;&nbsp;</td>', '')
+        txt = txt.replace('<td class="number-cell" rowspan="1" colspan="1">&nbsp;&nbsp;&nbsp;</td>\n\n', '')
+    elif DEPTH == 3:
+        txt = txt.replace('<td>&nbsp;&nbsp;&nbsp;</td>\n\n<td>&nbsp;&nbsp;&nbsp;</td>', '')
+        txt = txt.replace('<td>&nbsp;&nbsp;&nbsp;</td>\n\n<td class="number-cell" rowspan="1" colspan="1">&nbsp;&nbsp;&nbsp;</td>', '')
+        txt = txt.replace('<td class="number-cell" rowspan="1" colspan="1">&nbsp;&nbsp;&nbsp;</td>\n\n<td>&nbsp;&nbsp;&nbsp;</td>', '')
     txt = txt.replace('</style><title>', STYLETITLE)
     txt = txt.replace('<table cellspacing="0" border="0" cellpadding="4">', '<table cellspacing="0" border="0" cellpadding="4" id="cTable">')
     txt = txt.replace(' zł', '')
